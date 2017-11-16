@@ -7,17 +7,25 @@ public abstract class AbstractTileStack implements TileCollection {
         tiles = new ArrayDeque<>();
     }
 
-    @Override
     public Tile drawTile() {
         return tiles.pop();
     }
 
-    @Override
     public void dropTile(Tile tile) {
         tiles.push(tile);
     }
 
     @Override
+    public void addTile(Tile tile) {
+        dropTile(tile);
+    }
+
+    @Override
+    public Tile removeTile() {
+        return drawTile();
+    }
+
+    //Num tiles of this tile left in stack
     public int getNumTile(Tile tile) {
         int result = 0;
         for(Tile t: tiles){
@@ -66,10 +74,10 @@ public abstract class AbstractTileStack implements TileCollection {
            TileCollection currSet;
            if(result.containsKey(curr.getSuit())){
                currSet = result.get(curr.getSuit());
-               currSet.dropTile(curr);
+               currSet.addTile(curr);
            } else {
                currSet = new TileStack();
-               currSet.dropTile(curr);
+               currSet.addTile(curr);
            }
            result.put(curr.getSuit(), currSet);
        }

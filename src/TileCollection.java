@@ -2,17 +2,13 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public interface TileCollection {
-    //draw tile from top
-    Tile drawTile();
+    //add tile
+    void addTile(Tile tile);
+
+    Tile removeTile();
 
     //clear collection
     void clearTiles();
-
-    //add tile to top
-    void dropTile(Tile tile);
-
-    //get number of this tile left in set
-    int getNumTile(Tile tile);
 
     //return sorted list of tiles
     ArrayList<Tile> getSortedList();
