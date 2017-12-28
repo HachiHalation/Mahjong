@@ -25,6 +25,8 @@ public class Hand{
         toDiscard = wall.removeFromWall();
     }
 
+    public void draw(Tile t) {toDiscard = t; }
+
     public void setToDiscard(int index){
         Tile temp = hand.get(index);
         hand.set(toDiscard, index);
