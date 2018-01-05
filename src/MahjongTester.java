@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MahjongTester {
 
@@ -20,6 +19,17 @@ public class MahjongTester {
         Hand h1 = new Hand(test);
         System.out.println(h1);
         System.out.println(test.peekNextDraws(5));
+        List<TileList> sets = h1.makeIncompleteGroups();
+        System.out.println("\nIncomplete Sets");
+        for(TileList tl: sets){
+            System.out.println(tl);
+        }
+
+        System.out.println("\nComplete Sets");
+        sets = h1.makeCompleteSets();
+        for(TileList tl: sets){
+            System.out.println(tl);
+        }
     }
 
     public static void showTest(Object expected, Object actual, int testNum, String testingWhat){

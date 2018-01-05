@@ -24,6 +24,8 @@ public class TileList{
         return con.remove(index);
     }
 
+    public int size(){ return con.size(); }
+
     public String toString(){
         return con.toString();
     }

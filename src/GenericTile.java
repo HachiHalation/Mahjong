@@ -7,6 +7,10 @@ public class GenericTile extends Tile implements  Comparable{
 
     }
 
+    public int getNumValue(){
+        return numValue;
+    }
+
     public String toString(){
         return getSuit() + " " + numValue;
     }
@@ -20,5 +24,9 @@ public class GenericTile extends Tile implements  Comparable{
             }
             else if(o instanceof HonorTile) return -1;
             else return compared;
+    }
+
+    public boolean adjacent(GenericTile t){
+        return Math.abs(t.numValue - this.numValue) == 1;
     }
 }
